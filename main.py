@@ -11,7 +11,7 @@ def load_lotti(url):
         return None
     return r.json()
 def generate_dish(df):
-    np.random.seed(42)
+ 
     numbers =np.random.choice(df['title'],size=14)
     # steps = df[df["title"].isin(numbers)]['instructions']
     # ingredients = df[df["title"].isin(numbers)]['ingredients']
