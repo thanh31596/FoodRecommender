@@ -10,6 +10,9 @@ def load_lotti(url):
     if r.status_code !=200:
         return None
     return r.json()
+def convert_df(df):
+    # IMPORTANT: Cache the conversion to prevent computation on every rerun
+    return df.to_csv().encode('utf-8')
 def generate_dish(df):
  
     numbers =np.random.choice(df['title'],size=14)
@@ -57,5 +60,6 @@ with st.container():
                 st.write(pd.DataFrame(data))
                 st.write("TOTAL SPENDING THIS WEEK: $", total)
                 st.write("Data saved to Excel file:")
-                st.download_button(label="Download data as Excel",data=data.to_excel(f"{date_range[-1]}"+".xlsx", index=False))
+                csv = convert_df(data)
+                st.download_button(label="Download data as Excel",data=csv,file_name='large_df.csv',mime='text/csv',)
                 st.write("Excel file saved to disk.")
