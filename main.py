@@ -57,6 +57,5 @@ with st.container():
                 st.write(pd.DataFrame(data))
                 st.write("TOTAL SPENDING THIS WEEK: $", total)
                 st.write("Data saved to Excel file:")
-                if st.button('Download result'):
-                    data.to_excel(f"{date_range[-1]}"+".xlsx", index=False)
-                    st.write("Excel file saved to disk.")
+                st.download_button(label="Download data as Excel",data=data.to_excel(f"{date_range[-1]}"+".xlsx", index=False))
+                st.write("Excel file saved to disk.")
