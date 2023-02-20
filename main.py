@@ -62,4 +62,4 @@ with st.container():
                 st.write("Data saved to Excel file:")
                 csv = convert_df(data)
                 st.download_button(label="Download data as Excel",data=csv,file_name='large_df.csv',mime='text/csv',)
-                st.write("CSV file saved to disk.")
+                st.write("CSV file saved to disk")
