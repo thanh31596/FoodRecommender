@@ -107,7 +107,7 @@ with st.container():
 
         for ind,val in enumerate(date_box):
         
-            r =generate_tabs(val,ind)
+            generate_tabs(val,ind)
 
         #st.write(pd.DataFrame(data))
 
