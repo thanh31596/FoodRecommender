@@ -83,6 +83,7 @@ with st.container():
                     date_box=st.tabs(date_range)
                     st.session_state.data.append(data)
 
+
                     for ind,val in enumerate(date_box):
                     
                         generate_tabs(val,ind)
@@ -115,3 +116,4 @@ with st.container():
         csv = convert_df(data)
         if st.download_button(label="Download data as Excel",data=csv,file_name='large_df.csv',mime='text/csv',):
             st.write("CSV file saved to disk.")
+
